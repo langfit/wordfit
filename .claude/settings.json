@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MCP_TOOL_TIMEOUT": "330000"
+  }
+}

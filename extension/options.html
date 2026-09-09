@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>AI Lang Adapt</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; max-width: 34rem; margin: 2rem auto; padding: 0 1rem; }
+  label { display: block; margin: 1.25rem 0 .3rem; font-weight: 600; }
+  input { width: 100%; padding: .5rem; font: inherit; box-sizing: border-box; }
+  .hint { color: #666; font-size: .85em; margin-top: .3rem; }
+  button { margin-top: 1.5rem; padding: .5rem 1rem; font: inherit; }
+  #status { margin-top: 1rem; }
+  .ok { color: #157f3d; } .bad { color: #b3261e; }
+</style>
+<h1>AI Lang Adapt</h1>
+<label for="serverUrl">Server</label>
+<input id="serverUrl" type="text" placeholder="http://127.0.0.1:47821" />
+<div class="hint">The address <code>ai-lang-adapt serve</code> printed.</div>
+
+<label for="token">Token</label>
+<input id="token" type="password" placeholder="paste the token from serve" />
+<div class="hint">Stops any web page from spending your agent's turns.</div>
+
+<label for="targetLanguage">Target language</label>
+<input id="targetLanguage" type="text" placeholder="English" />
+<div class="hint">Rewrites are always in this language, whatever you typed in.</div>
+
+<button id="save">Save and test</button>
+<div id="status"></div>
+<script type="module" src="dist/options.js"></script>

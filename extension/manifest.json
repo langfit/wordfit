@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AI Lang Adapt",
+  "version": "0.1.0",
+  "description": "Correct and naturalise what you write, using your own Claude Code agent as the model.",
+  "permissions": ["storage"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "background": { "service_worker": "dist/background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "options_page": "options.html",
+  "action": { "default_title": "AI Lang Adapt — options" },
+  "commands": {
+    "adapt": {
+      "suggested_key": { "default": "Ctrl+Shift+Y", "mac": "Command+Shift+Y" },
+      "description": "Correct the selection, or the whole field"
+    }
+  }
+}

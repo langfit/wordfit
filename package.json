@@ -1,0 +1,29 @@
+{
+  "name": "ai-lang-adapt",
+  "version": "0.1.0",
+  "description": "Correct and naturalise text for a non-native writer, using your own Claude Code agent as the model.",
+  "type": "module",
+  "bin": {
+    "ai-lang-adapt": "dist/cli.js",
+    "adapt": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm run build:server && npm run build:ext",
+    "build:server": "tsc -p tsconfig.json",
+    "build:ext": "tsc -p extension/tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p extension/tsconfig.json --noEmit",
+    "dev": "npm run build && node dist/cli.js serve",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.2.9",
+    "@types/node": "^22.20.1",
+    "typescript": "^5.6.0"
+  }
+}
