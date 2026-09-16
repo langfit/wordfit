@@ -1,12 +1,12 @@
 # Requests and Rewrites cross the agent boundary as text, not shell arguments
 
-User text never appears as a shell argument. The CLI (`adapt poll` / `adapt respond
+User text never appears as a shell argument. The CLI (`wordfit poll` / `wordfit respond
 --file`) passes it as files; the MCP tools the worker actually uses pass it inline as JSON
 tool arguments. Both avoid the shell entirely, which was the point.
 
 ## Considered Options
 
-- **Command-line arguments** (`adapt respond <id> "text"`): rejected. Originals contain
+- **Command-line arguments** (`wordfit respond <id> "text"`): rejected. Originals contain
   newlines, quotes, backticks and `$`. Shell quoting of arbitrary user text is a bug class,
   not a detail, and a backtick is command substitution.
 - **JSON on stdin/stdout**: rejected. It requires the model to emit correctly escaped JSON

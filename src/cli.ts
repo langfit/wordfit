@@ -5,7 +5,7 @@ import { health, poll, respond, shutdown } from "./client.js";
 import { runMcpServer } from "./mcp.js";
 import { DEFAULT_POLL_TIMEOUT_S } from "./types.js";
 
-const USAGE = `ai-lang-adapt — correct and naturalise text using your own agent
+const USAGE = `wordfit — correct and naturalise text using your own agent
 
   serve [--port N]              start the server and hold the Loop open
   status                        is a Loop running

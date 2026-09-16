@@ -1,4 +1,4 @@
-# AI Lang Adapt
+# Wordfit
 
 A Chrome extension that corrects and naturalises text written by a non-native speaker,
 using the user's own running Claude Code agent as the model rather than a hosted API.

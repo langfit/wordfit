@@ -257,7 +257,7 @@
   function ui(): ShadowRoot {
     if (root) return root;
     host = document.createElement("div");
-    host.setAttribute("data-ai-lang-adapt", "");
+    host.setAttribute("data-wordfit", "");
     root = host.attachShadow({ mode: "closed" });
     const style = document.createElement("style");
     style.textContent = CSS;
@@ -450,7 +450,7 @@
         } else if (err === "busy") {
           showError(cap.rect(), "Already working", "One rewrite at a time — your agent is busy.");
         } else if (err === "unreachable" || res?.status === 0) {
-          showError(cap.rect(), "No server", "Start the Loop with /adapt-loop in Claude Code.");
+          showError(cap.rect(), "No server", "Start the Loop with /wordfit in Claude Code.");
         } else {
           showError(cap.rect(), "Request failed", String(err ?? res?.status ?? "unknown"));
         }

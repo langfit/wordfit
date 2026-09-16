@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AI Lang Adapt",
+  "name": "Wordfit",
   "version": "0.1.0",
   "description": "Correct and naturalise what you write, using your own Claude Code agent as the model.",
   "permissions": ["storage"],
@@ -15,9 +15,9 @@
     }
   ],
   "options_page": "options.html",
-  "action": { "default_title": "AI Lang Adapt — options" },
+  "action": { "default_title": "Wordfit — options" },
   "commands": {
-    "adapt": {
+    "wordfit": {
       "suggested_key": { "default": "Ctrl+Shift+Y", "mac": "Command+Shift+Y" },
       "description": "Correct the selection, or the whole field"
     }

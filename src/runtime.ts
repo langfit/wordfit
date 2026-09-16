@@ -35,7 +35,7 @@ export function requireRuntime(): RuntimeInfo {
   const rt = readRuntime();
   if (!rt) {
     throw new Error(
-      "No Loop is running. Start one with `ai-lang-adapt serve` (or the /adapt-loop skill).",
+      "No Loop is running. Start one with `wordfit serve` (or the /wordfit skill).",
     );
   }
   return rt;

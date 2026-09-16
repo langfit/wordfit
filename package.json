@@ -1,11 +1,10 @@
 {
-  "name": "ai-lang-adapt",
+  "name": "wordfit",
   "version": "0.1.0",
   "description": "Correct and naturalise text for a non-native writer, using your own Claude Code agent as the model.",
   "type": "module",
   "bin": {
-    "ai-lang-adapt": "dist/cli.js",
-    "adapt": "dist/cli.js"
+    "wordfit": "dist/cli.js"
   },
   "files": [
     "dist"

@@ -118,7 +118,7 @@ export async function runMcpServer(): Promise<void> {
         ok(id, {
           protocolVersion: requested,
           capabilities: { tools: { listChanged: false } },
-          serverInfo: { name: "ai-lang-adapt", version: "0.1.0" },
+          serverInfo: { name: "wordfit", version: "0.1.0" },
         });
         break;
       }

@@ -66,7 +66,7 @@ chrome.runtime.onMessage.addListener((msg: Msg, _sender: unknown, reply: (r: unk
 });
 
 chrome.commands.onCommand.addListener((command: string) => {
-  if (command !== "adapt") return;
+  if (command !== "wordfit") return;
   void chrome.tabs.query({ active: true, currentWindow: true }).then((tabs: any[]) => {
     const id = tabs[0]?.id;
     if (id !== undefined) void chrome.tabs.sendMessage(id, { type: "trigger" }).catch(() => {});

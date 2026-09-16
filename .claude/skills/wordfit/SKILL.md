@@ -1,16 +1,16 @@
 ---
-name: adapt-loop
-description: Start the ai-lang-adapt server and serve Rewrite Requests from the Chrome extension until stopped. Use when the user wants to start, run, restart, or stop the adapt Loop, or asks to "start adapting" / "serve rewrites" / "turn the extension on".
+name: wordfit
+description: Start the Wordfit server and serve Rewrite Requests from the Chrome extension until stopped. Use when the user wants to start, run, restart, or stop the Loop, or asks to serve rewrites / turn the extension on.
 ---
 
-# Adapt Loop
+# Wordfit
 
 Runs the Loop: the period during which an agent is polling and the extension actually
 works. Outside a Loop there is no model and Requests only expire. See `CONTEXT.md` for
 terms and `docs/adr/0001-agent-in-the-loop.md` for why it is built this way.
 
 Your job here is orchestration only. **You never serve a Request yourself** — the
-`adapt-worker` subagent does, because it runs with no shell and no network, and web page
+`wordfit-worker` subagent does, because it runs with no shell and no network, and web page
 text must not reach an agent that can edit this repo or make requests.
 
 ## Start the Loop
@@ -18,18 +18,18 @@ text must not reach an agent that can edit this repo or make requests.
 1. **Start the server**, in the background:
 
    ```
-   npx ai-lang-adapt serve
+   npx wordfit serve
    ```
 
    It prints `listening on <port>` and `token: <token>`, and writes both to
    `.adapt/runtime.json` so the MCP server can find them. If the port is taken, a Loop is
-   probably already running — check `npx ai-lang-adapt status` before starting a second one.
+   probably already running — check `npx wordfit status` before starting a second one.
 
 2. **Give the user the port and token, once**, in a single line they can copy into the
    extension's options page. Do not print the token again on restarts; it is stable for
    the life of the server.
 
-3. **Spawn the worker.** Call the Agent tool with `subagent_type: "adapt-worker"` and this
+3. **Spawn the worker.** Call the Agent tool with `subagent_type: "wordfit-worker"` and this
    prompt:
 
    ```
@@ -55,7 +55,7 @@ Restart the server first, then respawn.
 When the user asks to stop:
 
 ```
-npx ai-lang-adapt stop
+npx wordfit stop
 ```
 
 This drains in-flight Requests and shuts the server down; the worker's next `poll` fails

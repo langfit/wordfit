@@ -1,6 +1,6 @@
 ---
-name: adapt-worker
-description: Serves Rewrite Requests for ai-lang-adapt. Spawned by the adapt-loop skill; never invoke directly.
+name: wordfit-worker
+description: Serves Rewrite Requests for Wordfit. Spawned by the wordfit skill; never invoke directly.
 tools: mcp__adapt__poll, mcp__adapt__respond
 model: sonnet
 ---

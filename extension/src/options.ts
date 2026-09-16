@@ -29,7 +29,7 @@ document.getElementById("save")?.addEventListener("click", () => {
       el.textContent =
         (body.agents ?? 0) > 0
           ? "Saved. Server is up and an agent is polling — you're ready."
-          : "Saved. Server is up, but no agent is polling: run /adapt-loop in Claude Code.";
+          : "Saved. Server is up, but no agent is polling: run /wordfit in Claude Code.";
     } catch (err) {
       el.className = "bad";
       el.textContent = `Saved, but could not reach the server: ${

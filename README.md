@@ -1,4 +1,4 @@
-# ai-lang-adapt
+# Wordfit
 
 Correct and naturalise what you write in the browser, using **your own running Claude Code
 agent** as the model. No API key: the agent polls a local server, produces the correction,
@@ -14,7 +14,7 @@ select text / press Ctrl+Shift+Y
   → content script captures the Original + register context
   → service worker POSTs it to the local server, gets a Request id
   → server writes the text to a file and holds the Request (60s deadline)
-  → adapt-worker's `poll` tool returns the id and the file path
+  → wordfit-worker's `poll` tool returns the id and the file path
   → the worker reads it, writes the Rewrite to a file, calls `respond`
   → the extension short-polls the result and shows the diff
   → Accept splices it into the field
@@ -33,10 +33,10 @@ select the `extension/` directory.
 **2. Start the Loop.** In Claude Code, in this repo:
 
 ```
-/adapt-loop
+/wordfit
 ```
 
-It starts the server and prints a port and token, then spawns the `adapt-worker` subagent
+It starts the server and prints a port and token, then spawns the `wordfit-worker` subagent
 to serve Requests.
 
 **3. Configure the extension.** Click the extension icon, paste the port and token, set
@@ -89,6 +89,6 @@ it, you don't.
 ```
 src/            server, CLI, MCP server (no runtime dependencies)
 extension/      MV3 extension; each entry point is self-contained
-.claude/        the adapt-loop skill and the restricted adapt-worker agent
+.claude/        the wordfit skill and the restricted wordfit-worker agent
 docs/adr/       why it is built this way
 ```

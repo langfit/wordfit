@@ -2,7 +2,7 @@
   "mcpServers": {
     "adapt": {
       "command": "npx",
-      "args": ["-y", "ai-lang-adapt", "mcp"]
+      "args": ["-y", "wordfit", "mcp"]
     }
   }
 }
