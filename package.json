@@ -1,7 +1,15 @@
 {
   "name": "wordfit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Correct and naturalise text for a non-native writer, using your own Claude Code agent as the model.",
+  "homepage": "https://github.com/langfit/wordfit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/langfit/wordfit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/langfit/wordfit/issues"
+  },
   "type": "module",
   "bin": {
     "wordfit": "dist/cli.js"
@@ -23,6 +31,6 @@
   "devDependencies": {
     "@types/chrome": "^0.2.9",
     "@types/node": "^22.20.1",
-    "typescript": "^5.6.0"
+    "typescript": "^7.0.2"
   }
 }
