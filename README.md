@@ -30,17 +30,21 @@ npm run build
 **1. Load the extension.** `chrome://extensions` → Developer mode → *Load unpacked* →
 select the `extension/` directory.
 
-**2. Start the Loop.** In Claude Code, in this repo:
+**2. Enable the `adapt` MCP server** from `.mcp.json` (Cursor: `.cursor/mcp.json`) and
+start a new session in this repo so `adapt` is connected from the first turn. A session
+that began without it can start the server but cannot spawn a poller.
+
+**3. Start the Loop.** In this repo:
 
 ```
 /wordfit
 ```
 
-It starts the server and prints a port and token, then spawns the `wordfit-worker` subagent
-to serve Requests.
+Wait until it says the Loop is live and gives a port and token. The server alone is not
+a Loop — *Save and test* will then report "no agent is polling".
 
-**3. Configure the extension.** Click the extension icon, paste the port and token, set
-your target language, press *Save and test*.
+**4. Configure the extension.** Click the extension icon, paste the port and token, set
+your target language, press *Save and test*. It should say an agent is polling.
 
 ## Using it
 
@@ -81,8 +85,8 @@ extension detects these and offers the Rewrite to copy instead of corrupting the
 | `node dist/cli.js poll` | take a Request as the agent would (debugging) |
 | `node dist/cli.js stop` | drain and shut down |
 
-`node dist/cli.js mcp` is the stdio MCP server declared in `.mcp.json`; Claude Code spawns
-it, you don't.
+`node dist/cli.js mcp` is the stdio MCP server declared in `.mcp.json` (and
+`.cursor/mcp.json`); the agent host spawns it, you don't.
 
 ## Layout
 
